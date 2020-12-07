@@ -10,10 +10,10 @@ let database = process.env.DATABASE_DB
 
 exports.getLatLonCarSteal = function(req, res) {
   const con = mysql.createConnection({
-    host: host,
-    user: user,
-    password: pass,
-    database: database
+    host: 'localhost',
+    user: 'mayra',
+    password: 'mayrabernardes20',
+    database: 'yousafe'
   });
 
   con.connect(function(err) {

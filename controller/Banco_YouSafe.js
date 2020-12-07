@@ -17,7 +17,7 @@ exports.connectDataBase = function(req, res) {
         database: database
     });
 
-    fs.createReadStream('./data/carsteal.csv')
+    fs.createReadStream('./data/carsteal_09_2020.csv')
         .pipe(csv({ separator: ';' }))
         .on('data', (data) => results.push(data))
         .on('end', () => {

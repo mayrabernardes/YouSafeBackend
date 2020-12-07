@@ -2,12 +2,14 @@ const CarSteal = require("./controller/CarStealController.js");
 const CarRob = require("./controller/CarRobController.js"); 
 const PhoneSteal = require("./controller/PhoneStealController.js");
 const PhoneRob = require("./controller/PhoneRobController.js"); 
-const database = require("./scripts/Banco_YouSafe.js");
+const database_carsteal = require("./scripts/Banco_CarSteal.js");
+const database_phonesteal = require("./scripts/Banco_PhoneSteal.js");
 
 var express = require('express');
 var app = express();
 
-app.get('/dataBaseConnection', database.connectDataBase);
+app.get('/dataBaseCarSteal', database_carsteal.connectDataBase);
+app.get('/dataBasePhoneSteal', database_phonesteal.connectDataBase);
 app.get('/latlonCarSteal', CarSteal.getLatLonCarSteal);
 app.get('/latlonCarRob', CarRob.getLatLonCarRob);
 app.get('/latlonPhoneSteal', PhoneSteal.getLatLonPhoneSteal);
