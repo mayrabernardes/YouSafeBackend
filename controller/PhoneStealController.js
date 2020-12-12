@@ -1,12 +1,13 @@
 var mysql = require('mysql');
 const results = [];
 
-require('dotenv').config()
+const dotenv = require('dotenv')
+dotenv.config()
 
-let host = process.env.HOST_DB
-let user = process.env.USER_DB
-let pass = process.env.PASSWORD_DB
-let database = process.env.DATABASE_DB
+let host = process.env.DB_HOST
+let user = process.env.DB_USERNAME
+let pass = process.env.DB_PASSWORD
+let database = process.env.DB_DATABASE
 
 
 exports.getLatLonPhoneSteal = function(req, res) {
@@ -19,7 +20,7 @@ exports.getLatLonPhoneSteal = function(req, res) {
   
   con.connect(function(err) {
     if (err) throw err;
-    con.query("SELECT latitude,longitude FROM crimes WHERE crime = 'furto de celular'", function(err, result, fields) {
+    con.query("SELECT latitude,longitude FROM ocorrencia WHERE crime = 'Furto de Celular'", function(err, result, fields) {
       if (err) throw err;
       const resultLatLon = result.map((position) => {
         const latitude = position.latitude

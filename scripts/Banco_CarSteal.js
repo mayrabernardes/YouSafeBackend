@@ -18,11 +18,17 @@ exports.connectDataBase = function(req, res) {
             const resultLatLon = results.map((position) => {
                 const latitude = position.LATITUDE.replace(/\,/g, '.')
                 const longitude = position.LONGITUDE.replace(/\,/g, '.')
-                const rua = position.LOGRADOURO
+                const tipo = position.DESCR_TIPO_VEICULO
+                const periodo = position.PERIDOOCORRENCIA
+                const local = position.DESCRICAOLOCAL
                 if (position.LATITUDE !== null) {
-                    con.query(`INSERT INTO crimes(latitude,longitude,crime) VALUES(${parseFloat(latitude)},${parseFloat(longitude)},'furto de veiculo')`, function(err, result) {
+                    con.query(`INSERT INTO ocorrencia(latitude,longitude,crime) VALUES(${parseFloat(latitude)},${parseFloat(longitude)},'Furto de Veiculo');`, function(err, result) {
                         if (err) throw err;
                         // console.log(result);
+                    })
+                    con.query(`INSERT INTO descricao(descricao_veiculo, periodo_ocorrencia, descricao_local, id_ocorrencia) VALUES('${tipo}', '${periodo}', '${local}', LAST_INSERT_ID() );`, function(err, result) {
+                        if (err) throw err;
+                            console.log(result);
                     })
                 }
             })

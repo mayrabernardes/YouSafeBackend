@@ -1,25 +1,26 @@
 var mysql = require('mysql');
 const results = [];
 
-require('dotenv').config()
+const dotenv = require('dotenv')
+dotenv.config()
 
-let host = process.env.HOST_DB
-let user = process.env.USER_DB
-let pass = process.env.PASSWORD_DB
-let database = process.env.DATABASE_DB
+let host = process.env.DB_HOST
+let user = process.env.DB_USERNAME
+let pass = process.env.DB_PASSWORD
+let database = process.env.DB_DATABASE
 
 
 exports.getLatLonPhoneRob = function(req, res) {
   const con = mysql.createConnection({
-    host: host,
-    user: user,
-    password: pass,
-    database: database
+    host: 'localhost',
+    user: 'mayra',
+    password: 'mayrabernardes20',
+    database: 'yousafe'
   });
 
   con.connect(function(err) {
     if (err) throw err;
-    con.query("SELECT latitude,longitude FROM crimes WHERE crime = 'roubo de celular'", function(err, result, fields) {
+    con.query("SELECT latitude,longitude FROM ocorrencia WHERE crime = 'Roubo de Celular'", function(err, result, fields) {
       if (err) throw err;
       const resultLatLon = result.map((position) => {
         const latitude = position.latitude

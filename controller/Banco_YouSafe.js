@@ -26,7 +26,7 @@ exports.connectDataBase = function(req, res) {
                 const longitude = position.LONGITUDE.replace(/\,/g, '.')
                 const rua = position.LOGRADOURO
                 if (position.LATITUDE !== null) {
-                    con.query(`INSERT INTO crimes(latitude,longitude,crime) VALUES(${parseFloat(latitude)},${parseFloat(longitude)},'furto de veiculo')`, function(err, result) {
+                    con.query(`INSERT INTO ocorrencia(latitude,longitude,crime) VALUES(${parseFloat(latitude)},${parseFloat(longitude)},'furto de veiculo')`, function(err, result) {
                         if (err) throw err;
                         console.log("result");
                     })
