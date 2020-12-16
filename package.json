@@ -1,5 +1,5 @@
 {
-  "name": "Voce_seguro_backend",
+  "name": "YouSafeBackend",
   "version": "1.0.0",
   "description": "",
   "main": "api.js",
@@ -16,13 +16,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/brunohosilva/Voce_seguro_backend.git"
+    "url": "git+https://github.com/mayrabernardes/YouSafeBackend.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/brunohosilva/Voce_seguro_backend/issues"
+    "url": "https://github.com/mayrabernardes/YouSafeBackend/issues"
   },
-  "homepage": "https://github.com/brunohosilva/Voce_seguro_backend#readme"
+  "homepage": "https://github.com/mayrabernardes/YouSafeBackend#readme"
 }
